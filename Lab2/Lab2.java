@@ -3,6 +3,7 @@ import java.util.Scanner;
 //Below is the class for checking what the speed is and return a string of what speed the user enter.
 public class Lab2
 {
+  private static double fast;
   public static String checking(double speed)
   {
     String res="";
@@ -41,46 +42,42 @@ public class Lab2
 
     //Below is the main program that run over and over again until the user enter a negative number.
       public static void main(String args [])
-      {
-        double fast = getIntPrompt("Enter your Speed: ");
-        
+      {        
         double speed_sum = 0.0;
         double ok_sum = 0.0;
         double stop_sum = 0.0;
         int speed_count = 0;
         int ok_count = 0;
         int stop_count = 0;
-        double average_speed = 0;
-        double average_ok = 0;
-        double average_stop = 0;
+        double average_speed = 0.0;
+        double average_ok = 0.0;
+        double average_stop = 0.0;
         
         while(fast >= 0)
         {  
+          fast = getIntPrompt("Enter your Speed: ");
           String result = checking(fast); //This line need to be inside the loop and Can't be outside the loop.
           if(result .equals ("SPEEDING"))
           {  
-            fast = getIntPrompt("Enter your Speed: ");
             speed_sum += fast;
             speed_count += 1;
           }
           else if(result .equals ("OK"))
           {
-            fast = getIntPrompt("Enter your Speed: ");
             ok_sum += fast;
             ok_count += 1;
           }
           else if(result .equals ("STOPPED"))
           {
-            fast = getIntPrompt("Enter your Speed: ");
             stop_sum += fast;
             stop_count += 1;
           }
         }
         
         //Finding the average speed 
-        average_speed = speed_sum / speed_count;
-        average_ok = ok_sum / ok_count;
-        average_stop = stop_sum / stop_count;
+        average_speed = speed_sum/speed_count;
+        average_ok = ok_sum/ok_count;
+        average_stop = stop_sum/stop_count;
         
         
         //Checking if there are no input of the speed.
